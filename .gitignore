@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Release archives
+BroadcastBoxBridge-*.zip
+release/
+
+# Local configuration, logs, credentials
+.env
+.env.*
+*.log
+*.pem
+*.key
+secrets.*
+config.local.*
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,20 @@
+{
+  "name": "discord-bb-bridge",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Publish and watch Broadcast Box streams from inside Discord (Equicord + BetterDiscord).",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:bd": "node scripts/build.mjs --bd",
+    "install:equicord": "node scripts/build.mjs --install-equicord",
+    "install:bd": "node scripts/build.mjs --install-bd",
+    "typecheck": "tsc --noEmit",
+    "doctor": "node scripts/doctor.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.7.2"
+  }
+}
