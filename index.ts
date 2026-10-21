@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
  * Broadcast Box Bridge - Equicord entry point.
  *
  * Publish the current screen to your Broadcast Box instance and watch streams

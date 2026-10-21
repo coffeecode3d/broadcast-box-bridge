@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import type { PluginNative } from "@utils/types";
 import { ChannelRTCStore, ChannelStore, SelectedChannelStore, showToast, UserStore } from "@webpack/common";
 

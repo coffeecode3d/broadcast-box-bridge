@@ -161,4 +161,10 @@ More fixes and commands: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+Copyright (C) 2026 BroadcastBoxBridge contributors.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but **without any warranty**; without even the implied warranty of merchantability or fitness for a particular purpose. See the [GNU General Public License](LICENSE) for more details.
+
+The project is GPL-3.0-or-later so it can be combined with the GPL-licensed Vencord and Equicord plugin APIs. BetterDiscord is Apache-2.0 and remains compatible. Third-party notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

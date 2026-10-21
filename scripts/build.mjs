@@ -57,6 +57,7 @@ async function buildBetterDiscord() {
  * @author BroadcastBoxBridge contributors
  * @description Publish your screen to a self-hosted Broadcast Box instance and watch other members' streams inside Discord.
  * @version ${pkg.version}
+ * @license GPL-3.0-or-later
  * @donate false
  * @patreon false
  */

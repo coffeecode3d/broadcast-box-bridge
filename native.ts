@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
  * Broadcast Box Bridge - Equicord native helper.
  *
  * Runs in the Electron main process. All screen capture, encoding and the
