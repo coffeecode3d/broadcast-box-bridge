@@ -36,16 +36,46 @@ BetterDiscord does not include a Node runtime for these platforms.
 
 ## Equicord
 
-Equicord userplugins are built from source.
+Equicord compiles userplugins into its bundle; there is no runtime `.plugin.js` loader. The release zip includes an installer that automates the clone, copy, build, and inject steps.
 
-1. Download `BroadcastBoxBridge-Equicord.zip`.
-2. Extract the `broadcastBoxBridge` folder into your Equicord checkout:
+### Automated install
+
+Prerequisites: **Git**, **Node.js 20+**, and **pnpm** on `PATH`.
+
+1. Download and extract `BroadcastBoxBridge-Equicord.zip`.
+2. Open a terminal in the extracted folder.
+3. Run:
+
+   ```bash
+   node install-equicord.mjs
+   ```
+
+   The installer checks `EQUICORD_DIR`, then `~/Equicord`. If neither is a checkout, it asks before cloning Equicord.
+
+4. Close Discord before the final injection step.
+5. Start Discord and enable **BroadcastBoxBridge** in **Settings → Equicord → Plugins**.
+
+Useful options:
+
+```bash
+node install-equicord.mjs --equicord /path/to/Equicord
+node install-equicord.mjs --update
+node install-equicord.mjs --force
+node install-equicord.mjs --yes
+node install-equicord.mjs --dry-run
+```
+
+The installer backs up an existing `src/userplugins/broadcastBoxBridge` folder to `.bb-bridge-backups` before replacing it. Re-run it after an Equicord or Discord update.
+
+### Manual install
+
+1. Extract the `broadcastBoxBridge` folder into your Equicord checkout:
 
    ```text
    <your Equicord checkout>/src/userplugins/broadcastBoxBridge
    ```
 
-3. Build and inject Equicord:
+2. Build and inject Equicord:
 
    ```bash
    cd <your Equicord checkout>
@@ -54,7 +84,7 @@ Equicord userplugins are built from source.
    pnpm inject --install
    ```
 
-4. Restart Discord and enable **BroadcastBoxBridge** in **Settings → Equicord → Plugins**.
+3. Restart Discord and enable **BroadcastBoxBridge** in **Settings → Equicord → Plugins**.
 
 Keep the folder name exactly `broadcastBoxBridge`; the native adapter registers its helper under that name.
 
@@ -79,6 +109,7 @@ Useful commands:
 ```bash
 pnpm typecheck
 pnpm build:bd
+pnpm install:equicord
 pnpm install:bd
 pnpm doctor
 ```

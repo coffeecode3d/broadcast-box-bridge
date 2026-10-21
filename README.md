@@ -41,23 +41,35 @@ Download the latest release: **[Releases](../../releases/latest)**
 
 #### Equicord
 
-1. Download [BroadcastBoxBridge-Equicord.zip](../../releases/latest/download/BroadcastBoxBridge-Equicord.zip).
-2. Extract the `broadcastBoxBridge` folder into your Equicord source checkout:
+Equicord compiles userplugins into its bundle, so it cannot use a standalone `.plugin.js` file like BetterDiscord. The Equicord release zip includes an installer that automates the copy, build, and injection steps.
 
-   ```text
-   <your Equicord checkout>/src/userplugins/broadcastBoxBridge
-   ```
+Prerequisites: **Git**, **Node.js 20+**, and **pnpm** on `PATH`.
 
-3. Build Equicord:
+1. Download [BroadcastBoxBridge-Equicord.zip](../../releases/latest/download/BroadcastBoxBridge-Equicord.zip) and extract it.
+2. In a terminal, from the extracted folder, run:
 
    ```bash
-   cd <your Equicord checkout>
-   pnpm install
-   pnpm build
-   pnpm inject --install
+   node install-equicord.mjs
    ```
 
-4. Restart Discord, open **Settings → Equicord → Plugins**, and enable **BroadcastBoxBridge**.
+   The installer looks for an Equicord checkout at `~/Equicord`. If none exists, it asks whether to clone Equicord there.
+
+3. Close Discord before the injection step. The installer runs `pnpm install`, `pnpm build`, and `pnpm inject --install`.
+4. Start Discord, open **Settings → Equicord → Plugins**, and enable **BroadcastBoxBridge**.
+
+Useful installer options:
+
+```bash
+node install-equicord.mjs --equicord /path/to/Equicord  # use an existing checkout
+node install-equicord.mjs --update                      # update Equicord first
+node install-equicord.mjs --force                       # replace an existing userplugin
+node install-equicord.mjs --yes                         # non-interactive
+node install-equicord.mjs --dry-run                     # show what it would do
+```
+
+If Discord updates or Equicord is rebuilt, run the installer again. Your plugin settings are stored in Discord's `localStorage` and are not touched by the installer.
+
+For manual installation or development, see [docs/INSTALL.md](docs/INSTALL.md).
 
 ### Option 2: Build from source
 
@@ -74,12 +86,19 @@ The default build creates the BetterDiscord bundle and syncs the Equicord userpl
 EQUICORD_DIR=/path/to/Equicord pnpm build
 ```
 
+For the automated Equicord install from a source checkout, run:
+
+```bash
+pnpm install:equicord
+```
+
 Useful build scripts:
 
 ```bash
 pnpm typecheck              # TypeScript check
 pnpm build                  # build plugin files, sync Equicord if present
 pnpm build:bd               # BetterDiscord bundle only
+pnpm install:equicord       # automated Equicord install (clone/build/inject)
 pnpm install:bd             # copy the plugin into BetterDiscord's plugin folder
 pnpm doctor                 # machine capability diagnostics
 ```
