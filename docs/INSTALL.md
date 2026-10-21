@@ -8,7 +8,7 @@ There is no bundled Broadcast Box server. After installing, open the plugin's **
 
 ### Windows
 
-1. Download `BroadcastBoxBridge-BetterDiscord.zip` from [Releases](../../releases/latest).
+1. Download `BroadcastBoxBridge-BetterDiscord.zip` from [Releases](../../../releases/latest).
 2. Extract its contents into `%appdata%\BetterDiscord\plugins\`.
 3. Confirm the folder now contains:
 
